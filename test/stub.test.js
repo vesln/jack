@@ -25,7 +25,7 @@ var Stub = require('../lib/stub');
  */
 var foo = function() { 
   return 4; 
-}
+};
 
 describe('Stub', function() {
   describe('.andReturn()', function() {
@@ -103,7 +103,6 @@ describe('Stub', function() {
       obj.stub('foo').it.should_be.called.exactly(1).times;
       obj.foo();
       obj.foo.reset();
-      
       obj = new EventEmitter;
       obj.foo = foo;
       obj.stub('foo').it.should_be.called.exactly(2).times;
