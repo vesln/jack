@@ -75,4 +75,24 @@ describe('Stub', function() {
       } catch (err) {}
     });
   });
+  
+  describe('.twice()', function() {
+    it('should should set expected calls to two.', function() {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.twice;
+      obj.foo();
+      obj.foo();
+      obj.foo.reset();
+      
+      obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.twice;
+      obj.foo();
+      try {
+        obj.foo.reset();
+        throw new Error('Expected error.')
+      } catch (err) {}
+    });
+  });
 });
