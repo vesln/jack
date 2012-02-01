@@ -95,4 +95,25 @@ describe('Stub', function() {
       } catch (err) {}
     });
   });
+  
+  describe('.exactly()', function() {
+    it('should should set expected calls to two.', function() {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.exactly(1).times;
+      obj.foo();
+      obj.foo.reset();
+      
+      obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.exactly(2).times;
+      obj.foo();
+      obj.foo();
+      obj.foo();
+      try {
+        obj.foo.reset();
+        throw new Error('Expected error.')
+      } catch (err) {}
+    });
+  });
 });
