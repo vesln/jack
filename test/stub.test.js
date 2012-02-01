@@ -181,4 +181,40 @@ describe('Stub', function() {
       throw new Error('Error expected.');
     });
   });
+  
+  describe('.arguments()', function() {
+    it('should set argument expectations', function() {
+      var obj = new EventEmitter;
+      var error = null;
+      obj.foo = foo;
+      obj.stub('foo').expect.arguments('foo', 'bar');
+      obj.foo('foo', 'bar');
+      obj.foo.reset();
+      
+      obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').expect.arguments('foo', 'bar');
+      obj.foo('foo', 'zab');
+      try {
+        obj.foo.reset();
+      } catch(err) { 
+        error = err;
+      } finally {
+        if (!error) throw new Error('Expected an error');
+        error = null;
+      }
+      
+      obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').expect.arguments('foo', 'bar');
+      try {
+        obj.foo.reset();
+      } catch(err) { 
+        error = err;
+      } finally {
+        if (!error) throw new Error('Expected an error');
+        error = null;
+      }
+    });
+  });
 });
