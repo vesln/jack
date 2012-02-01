@@ -164,7 +164,6 @@ describe('Stub', function() {
       } catch(err) {
         return;
       }
-      
       throw new Error('Error expected.');
     });
   });
