@@ -42,6 +42,7 @@ describe('Stub', function() {
       obj.on().should.eql(3);
       obj.on().should.eql(2);
       obj.on().should.eql(1);
+      obj.on.reset();
     });
   });
   
@@ -123,6 +124,41 @@ describe('Stub', function() {
       obj.stub('foo').it.should_be.called.exactly(1).times;
       obj.stub('foo').it.should_be.called.any.number.of.times;
       obj.foo.reset();
+    });
+  });
+  
+  describe('.least()', function() {
+    it('should set expected calls count to at least n.', function() {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.at.least(1).times;
+      obj.foo();
+      obj.foo.reset();
+      obj.stub('foo').it.should_be.called.at.least(2).times;
+      obj.foo();
+      try {
+        obj.foo.reset();
+        throw new Error('Error expected.');
+      } catch(err) {}
+    });
+  });
+  
+  describe('.most()', function() {
+    it('should set expected calls count to at most n.', function() {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').it.should_be.called.at.most(2).times;
+      obj.foo();
+      obj.foo();
+      obj.foo.reset();
+      obj.stub('foo').it.should_be.called.at.most(2).times;
+      obj.foo();
+      obj.foo();
+      obj.foo();
+      try {
+        obj.foo.reset();
+        throw new Error('Error expected.');
+      } catch(err) {}
     });
   });
 });
