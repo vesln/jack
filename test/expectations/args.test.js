@@ -6,6 +6,11 @@
  */
 
 /**
+ * Support.
+ */
+var should = require('chai').should();
+
+/**
  * The tested class.
  */
 var Args = require('../../lib/expectations/args');

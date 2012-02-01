@@ -8,6 +8,7 @@
 /**
  * Support.
  */
+var should = require('chai').should();
 var EventEmitter = require('events').EventEmitter;
 var jack = require('../lib');
 

@@ -6,7 +6,7 @@
   , "author": "Veselin Todorov <hi@vesln.com>"
   , "devDependencies": {
       "mocha": "0.3.3"
-    , "should": "0.3.2"
+    , "chai": "0.2.1"
   }
   , "repository": {
       "type" : "git"
