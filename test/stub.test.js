@@ -112,8 +112,10 @@ describe('Stub', function() {
       obj.foo();
       try {
         obj.foo.reset();
-        throw new Error('Expected error.')
-      } catch (err) {}
+      } catch (err) {
+        return;
+      }
+      throw new Error('Expected error.')
     });
   });
   
@@ -138,8 +140,10 @@ describe('Stub', function() {
       obj.foo();
       try {
         obj.foo.reset();
-        throw new Error('Error expected.');
-      } catch(err) {}
+      } catch(err) {
+        return;
+      }
+      throw new Error('Error expected.');
     });
   });
   
@@ -157,8 +161,25 @@ describe('Stub', function() {
       obj.foo();
       try {
         obj.foo.reset();
-        throw new Error('Error expected.');
-      } catch(err) {}
+      } catch(err) {
+        return;
+      }
+      
+      throw new Error('Error expected.');
+    });
+  });
+  
+  describe('.throw()', function() {
+    it('should throw an error.', function() {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').and.throw('Message');
+      try {
+        obj.foo();
+      } catch(err) {
+        return;
+      }
+      throw new Error('Error expected.');
     });
   });
 });
