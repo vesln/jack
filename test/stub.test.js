@@ -32,14 +32,14 @@ describe('Stub', function() {
   describe('.andReturn()', function() {
     it('should return a supplied value when called.', function() {
       var obj = new EventEmitter;
-      obj.stub('on').andReturn(3);
+      obj.stub('on').and.return(3);
       obj.on().should.eql(3);
       obj.on.reset();
     });
     
     it('should allow multiple return values to be set', function() {
       var obj = new EventEmitter;
-      obj.stub('on').andReturn(3, 2, 1);
+      obj.stub('on').and.return(3, 2, 1);
       obj.on().should.eql(3);
       obj.on().should.eql(2);
       obj.on().should.eql(1);
@@ -51,7 +51,7 @@ describe('Stub', function() {
     it('should reset the original method functionality', function() {
       var obj = new EventEmitter;
       obj.foo = foo;
-      obj.stub('foo').andReturn(3);
+      obj.stub('foo').and.return(3);
       obj.foo().should.eql(3);
       obj.foo.reset();
       obj.foo().should.eql(4);
