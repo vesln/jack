@@ -120,8 +120,8 @@ describe('Stub', function() {
     it('should reset the expected calls count.', function() {
       var obj = new EventEmitter;
       obj.foo = foo;
-      var stub = obj.stub('foo').it.should_be.called.exactly(1).times;
-      stub.should_be.called.any.number.of.times;
+      obj.stub('foo').it.should_be.called.exactly(1).times;
+      obj.stub('foo').it.should_be.called.any.number.of.times;
       obj.foo.reset();
     });
   });
