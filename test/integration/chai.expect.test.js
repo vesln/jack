@@ -83,5 +83,27 @@ describe('Chai expect() integration', function() {
         expect(myfoo.baz).to.have.been.called.exactly(3);
       }, "expected method 'baz' to have been called 3 times but got 4");
     });
+
+    it('should work for min', function () {
+      expect(myfoo.bar).to.have.been.called.min(3);
+      expect(myfoo.bar).to.have.been.called.min(2);
+      err(function () {
+        expect(myfoo.baz).to.have.been.called.min(5);
+      }, "expected method \'baz\' to have been called minimum of 5 times but got 4");
+      err(function () {
+        expect(myfoo.baz).to.have.been.not.called.min(2);
+      }, "expected method \'baz\' to have been called less than 2 times but got 4");
+    });
+
+    it('should work for max', function () {
+      expect(myfoo.bar).to.have.been.called.max(3);
+      expect(myfoo.bar).to.have.been.called.max(4);
+      err(function () {
+        expect(myfoo.baz).to.have.been.called.max(3);
+      }, "expected method \'baz\' to have been called maximum of 3 times but got 4");
+      err(function () {
+        expect(myfoo.baz).to.have.not.been.called.max(5);
+      }, "expected method \'baz\' to have been called more than 5 times but got 4");
+    });
   });
 });
