@@ -29,7 +29,7 @@ var foo = function() {
 };
 
 describe('Stub', function() {
-  describe('.andReturn()', function() {
+  describe('.return()', function() {
     it('should return a supplied value when called.', function() {
       var obj = new EventEmitter;
       obj.stub('on').and.return(3);
