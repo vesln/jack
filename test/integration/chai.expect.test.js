@@ -41,13 +41,7 @@ describe('Chai expect() integration', function() {
 
     myfoo.bar();
     expect(myfoo.bar).to.have.been.called;
-    // expect(myfoo.baz).to.not.have.been.called;
-
-    /*
-    err(function () {
-      expect(myfoo.bar).to.not.have.been.called;
-    }, 'expected method \'bar\' to not have been called');
-    */
+    expect(myfoo.baz).to.have.been.not_called;
   });
 
   describe('count', function () {
