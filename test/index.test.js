@@ -24,6 +24,7 @@ describe('jack', function() {
     it('should return new Stub instance.', function() {
       var obj = new EventEmitter;
       jack.stub(obj, 'on').should.be.an.instanceof(Stub);
+      jack.mock(obj, 'on').should.be.an.instanceof(Stub);
     });
   });
 });
@@ -33,6 +34,7 @@ describe('Object', function() {
     it('should return new Stub instance.', function() {
       var obj = new EventEmitter;
       obj.stub('on').should.be.an.instanceof(Stub);
+      obj.mock('on').should.be.an.instanceof(Stub);
     });
   });
 });
