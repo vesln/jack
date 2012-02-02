@@ -27,6 +27,13 @@ describe('jack', function() {
       jack.mock(obj, 'on').should.be.an.instanceof(Stub);
     });
   });
+  
+  describe('.spy()', function() {
+    it('should return new Stub instance.', function() {
+      var obj = new EventEmitter;
+      jack.spy(obj, 'on').should.be.an.instanceof(Stub);
+    });
+  });
 });
 
 describe('Object', function() {
@@ -35,6 +42,13 @@ describe('Object', function() {
       var obj = new EventEmitter;
       obj.stub('on').should.be.an.instanceof(Stub);
       obj.mock('on').should.be.an.instanceof(Stub);
+    });
+  });
+  
+  describe('.spy()', function() {
+    it('should return new Stub instance.', function() {
+      var obj = new EventEmitter;
+      obj.spy('on').should.be.an.instanceof(Stub);
     });
   });
 });

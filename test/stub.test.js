@@ -29,6 +29,18 @@ var foo = function() {
 };
 
 describe('Stub', function() {
+  describe('spy', function() {
+    it('should spy an method', function(done) {
+      var obj = new EventEmitter;
+      obj.spy('on').it.should_be.called.once;
+      obj.on('foo', function() {
+        obj.on.reset();
+        done();
+      });
+      obj.emit('foo');
+    });
+  });
+  
   describe('.return()', function() {
     it('should return a supplied value when called.', function() {
       var obj = new EventEmitter;
