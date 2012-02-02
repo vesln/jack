@@ -59,6 +59,17 @@ describe('Stub', function() {
     });
   });
   
+  describe('.replace()', function() {
+    it('should replace the original method with another one.', function(done) {
+      var obj = new EventEmitter;
+      obj.foo = foo;
+      obj.stub('foo').and.replace(function() {
+        done();
+      });
+      obj.foo();
+    });
+  })
+  
   describe('.reset()', function() {
     it('should reset the original method functionality', function() {
       var obj = new EventEmitter;
