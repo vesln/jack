@@ -5,8 +5,8 @@
   , "keywords": ["mock", "stub", "test"]
   , "author": "Veselin Todorov <hi@vesln.com>"
   , "devDependencies": {
-      "mocha": "0.3.3"
-    , "chai": "0.2.1"
+      "mocha": "*"
+    , "chai": "*"
   }
   , "repository": {
       "type" : "git"
@@ -17,7 +17,7 @@
       "test": "make test"
   }
   , "main": "./lib/index"
-  , "engines": { 
+  , "engines": {
       "node": ">= 0.6.0 < 0.7.0"
   }
 }
