@@ -4,6 +4,10 @@
   , "description": "Mock & stub your objects."
   , "keywords": ["mock", "stub", "test"]
   , "author": "Veselin Todorov <hi@vesln.com>"
+  , "contributors": [
+        { "name": "Jake Luer"
+        , "email": "jake@alogicalparadox.com" }
+    ]
   , "devDependencies": {
       "mocha": "*"
     , "chai": "*"
