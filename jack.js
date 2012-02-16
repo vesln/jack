@@ -571,25 +571,40 @@ jack.spy = function(obj, method) {
 jack.chai = require('./integration/chai');
 
 /**
- * Stubs an object method.
+ * Creates a mock.
  *
  * @param {String} Method name.
  * @returns {Object} Stub.
- * @api public
  */
-Object.prototype.mock =
-Object.prototype.stub = function(method) {
+var mock = function(method) {
   return new Stub(this, method);
 };
 
 /**
  * Creates a spy.
  *
+ * @param {String} Method name.
  * @returns {Object} Stub.
+ */
+var spy = function(method) {
+  return new Stub(this, method, true);
+};
+
+/**
+ * Extends the Object. Thanks @rstankov!
+ *
+ * @param {Object|Function} The object that will be extended.
+ * @returns {Object} `this`.
  * @api public
  */
-Object.prototype.spy = function(method) {
-  return new Stub(this, method, true);
+jack.extend = function(obj) {
+  if (typeof obj === 'object') {
+    obj.spy = spy;
+    obj.mock = obj.stub = mock;
+  } else {
+    obj.prototype.spy = spy;
+    obj.prototype.mock = obj.prototype.stub = mock;
+  }
 };
 
 /**
@@ -603,6 +618,9 @@ jack.noConflict = function() {
   Object.prototype.stub = _stub;
   return jack;
 };
+
+// Extend the Object.
+jack.extend(Object);
 
 }); // module jack
 
