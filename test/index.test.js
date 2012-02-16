@@ -19,6 +19,7 @@ if (!chai) {
 }
 
 var should = chai.should();
+var expect = chai.expect;
 
 /**
  * The tested object.
@@ -26,7 +27,7 @@ var should = chai.should();
  * @type {Object}
  */
 if (!jack) {
-var jack = require('..')
+  var jack = require('..')
 }
 var Stub = jack.Stub;
 
@@ -48,10 +49,29 @@ describe('jack', function() {
 
   describe('.noConflict()', function() {
     it('should revert the stub, mock and spy methods', function() {
-      /*
       jack.noConflict();
-      Object.prototype.stub.should.eql(void 0);
-      */
+      expect(Object.prototype.stub === undefined).to.be.true;
+      expect(Object.prototype.mock === undefined).to.be.true;
+      expect(Object.prototype.spy === undefined).to.be.true;
+      jack.extend(Object);
+    });
+  });
+
+  describe('.extend()', function() {
+    it('should extend object', function() {
+      var obj = {};
+      jack.extend(obj);
+      expect(obj.stub === undefined).to.be.false;
+      expect(obj.mock === undefined).to.be.false;
+      expect(obj.spy === undefined).to.be.false;
+    });
+
+    it('should extend constructor', function() {
+      var ctor = function() {};
+      jack.extend(ctor);
+      expect(ctor.prototype.stub === undefined).to.be.false;
+      expect(ctor.prototype.mock === undefined).to.be.false;
+      expect(ctor.prototype.spy === undefined).to.be.false;
     });
   });
 });
