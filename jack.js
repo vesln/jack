@@ -91,26 +91,21 @@ module.exports = Expectation;
 require.register("expectations/args", function (module, exports, require) {
 /*!
  * Jack.
- * 
+ *
  * Veselin Todorov <hi@vesln.com> && Jake Luer <jake@alogicalparadox.com>
  * MIT License.
  */
 
 /**
- * Module dependencies.
- */
-var util = require('util');
-
-/**
  * Expectation base.
- * 
+ *
  * @type {Function}
  */
 var Expectation = require('../expectation');
 
 /**
  * Args constructor.
- * 
+ *
  * @param {String} The stub method.
  */
 function Args(method) {
@@ -120,11 +115,11 @@ function Args(method) {
 };
 
 // `Args`. inhertis from `Expectation`.
-util.inherits(Args, Expectation);
+Args.prototype.__proto__ = Expectation.prototype;
 
 /**
  * Error message.
- * 
+ *
  * @type {Object}
  * @api private
  */
@@ -134,7 +129,7 @@ Args.prototype.messages = {
 
 /**
  * Sets expectations.
- * 
+ *
  * @param {Object} Arguments.
  * @api public
  */
@@ -144,20 +139,20 @@ Args.prototype.expect = function(args) {
 
 /**
  * Called when the the rest method of the original method was invoked.
- * 
+ *
  * @api public
  */
 Args.prototype.end = function() {
   var eql = true;
   if (!this.expectations) return;
-  
+
   for (var i = -1, len = this.expectations.length; ++i < len;) {
     if (this.expectations[i] !== this.args[i]) eql = false;
   }
-  
+
   if (eql) return;
-  
-  throw new Error(this.error('main', { 
+
+  throw new Error(this.error('main', {
     expectations: util.inspect(this.expectations),
     args: util.inspect(this.args)
   }));
@@ -165,7 +160,7 @@ Args.prototype.end = function() {
 
 /**
  * Called when the stubed method was invoked.
- * 
+ *
  * @param {Object} Arguments.
  * @api public
  */
@@ -178,6 +173,7 @@ Args.prototype.notify = function(args) {
  * Expose `Args`.
  */
 module.exports = Args;
+
 }); // module args
 
 
@@ -188,11 +184,6 @@ require.register("expectations/count", function (module, exports, require) {
  * Veselin Todorov <hi@vesln.com> && Jake Luer <jake@alogicalparadox.com>
  * MIT License.
  */
-
-/**
- * Module dependencies.
- */
-var util = require('util');
 
 /**
  * Expectation base.
@@ -213,7 +204,7 @@ function Count(method) {
 };
 
 // `Args`. inhertis from `Expectation`.
-util.inherits(Count, Expectation);
+Count.prototype.__proto__ = Expectation.prototype;
 
 /**
  * Error message.
@@ -531,6 +522,11 @@ var Stub = require('./stub');
 var jack = module.exports;
 
 /**
+ * Exposing the Stub object
+ */
+jack.Stub = Stub;
+
+/**
  * Keep the original mock, stub and spy methods
  * in case they are used anywhere.
  */
@@ -581,14 +577,14 @@ jack.chai = require('./integration/chai');
  * @returns {Object} Stub.
  * @api public
  */
-Object.prototype.mock = 
+Object.prototype.mock =
 Object.prototype.stub = function(method) {
   return new Stub(this, method);
 };
 
 /**
  * Creates a spy.
- * 
+ *
  * @returns {Object} Stub.
  * @api public
  */
