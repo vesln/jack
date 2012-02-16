@@ -1,5 +1,7 @@
-var chai = require('chai')
-  , jack = require('../..')
+if (!chai) {
+  var chai = require('chai')
+    , jack = require('../..')
+}
 
 chai.use(jack.chai);
 var expect = chai.expect;
