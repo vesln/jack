@@ -34,6 +34,13 @@ describe('jack', function() {
       jack.spy(obj, 'on').should.be.an.instanceof(Stub);
     });
   });
+  
+  describe('.noConflict()', function() {
+    it('should revert the stub, mock and spy methods', function() {
+      jack.noConflict();
+      Object.prototype.stub.should.eql(void 0);
+    });
+  });
 });
 
 describe('Object', function() {
