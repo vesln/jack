@@ -1,6 +1,6 @@
 /*!
  * Jack.
- * 
+ *
  * Veselin Todorov <hi@vesln.com> && Jake Luer <jake@alogicalparadox.com>
  * MIT License.
  */
@@ -20,7 +20,7 @@ describe('Args', function() {
     var args = new Args('foo');
     args.end();
   });
-  
+
   it('should throw an error if expectations is not met', function() {
     var args = new Args('foo');
     var error = null;
@@ -32,7 +32,7 @@ describe('Args', function() {
     } finally {
       if (!error) throw new Error('An error was expected.');
     }
-    
+
     args = new Args('foo');
     args.expect(['foo', 'bar']);
     args.notify(['foo', 'bar']);
@@ -43,7 +43,7 @@ describe('Args', function() {
     } finally {
       if (!error) throw new Error('An error was expected.');
     }
-    
+
     args = new Args('foo');
     args.expect(['foo', 'bar']);
     args.notify(['foo', 'bar']);

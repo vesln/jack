@@ -1,23 +1,34 @@
 /*!
  * Jack.
- * 
+ *
  * Veselin Todorov <hi@vesln.com> && Jake Luer <jake@alogicalparadox.com>
  * MIT License.
  */
 
 /**
- * Support.
+ * Support. (node + browser)
  */
-var should = require('chai').should();
-var EventEmitter = require('events').EventEmitter;
-var Stub = require('../lib/stub');
+var EventEmitter;
+if (!chai) {
+  // nodejs
+  var chai = require('chai');
+  EventEmitter = require('events').EventEmitter;
+} else {
+  // browser
+  EventEmitter = events.EventEmitter;
+}
+
+var should = chai.should();
 
 /**
  * The tested object.
- * 
+ *
  * @type {Object}
  */
-var jack = require('../lib');
+if (!jack) {
+var jack = require('..')
+}
+var Stub = jack.Stub;
 
 describe('jack', function() {
   describe('.stub()', function() {
@@ -27,14 +38,14 @@ describe('jack', function() {
       jack.mock(obj, 'on').should.be.an.instanceof(Stub);
     });
   });
-  
+
   describe('.spy()', function() {
     it('should return new Stub instance.', function() {
       var obj = new EventEmitter;
       jack.spy(obj, 'on').should.be.an.instanceof(Stub);
     });
   });
-  
+
   describe('.noConflict()', function() {
     it('should revert the stub, mock and spy methods', function() {
       /*
@@ -53,7 +64,7 @@ describe('Object', function() {
       obj.mock('on').should.be.an.instanceof(Stub);
     });
   });
-  
+
   describe('.spy()', function() {
     it('should return new Stub instance.', function() {
       var obj = new EventEmitter;
