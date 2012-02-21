@@ -286,10 +286,14 @@ module.exports = function (chai) {
   var Assertion = chai.Assertion
     , i = chai.inspect;
 
-  if (Assertion.prototype.hasOwnProperty('called')) {
-    // we have already extended chai, so head on out
-    return;
-  }
+  /**
+   * # stub
+   *
+   * Assert that the object is a `Stub` by checking the
+   * internals for the `__stub` object.
+   *
+   * @api public
+   */
 
   Object.defineProperty(Assertion.prototype, 'stub',
     { get: function () {
@@ -327,7 +331,7 @@ module.exports = function (chai) {
             , 'expected method ' + i(stub.method) + ' to not have been called'
           );
         } else if (!this.negate) {
-          stub.count.expect(1);
+          stub.count.expect(1, 'min');
         }
         return this;
       }
