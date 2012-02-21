@@ -189,8 +189,8 @@ Interested in contributing? Fork to get started.
 
 #### Contibutors 
 
-* Veselin Todorov ([Github: @vesln](https://github.com/vesln) ([Twitter: @vesln)(http://twitter.com/vesln))
-* Jake Luer ([Github: @logicalparadox](http://github.com/logicalparadox)) ([Twitter: @jakeluer](http://twitter.com/jakeluer))
+* Veselin Todorov (Github: @[vesln](https://github.com/vesln) (Twitter: @[vesln](http://twitter.com/vesln))
+* Jake Luer (Github: @[logicalparadox](http://github.com/logicalparadox)) (Twitter: @[jakeluer](http://twitter.com/jakeluer))
 
 ## License
 
