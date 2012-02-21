@@ -172,7 +172,7 @@ $ make test
 ```
 ## Where to Get Help
 
-Please post issues to [GitHub Issues](https://github.com/logicalparadox/filtr/issues).
+Please post issues to [GitHub Issues](https://github.com/vesln/jack/issues).
 
 ## Tests
 
