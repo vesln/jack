@@ -5,7 +5,7 @@
 ## Description
 
 Jack is a simple but yet powerful mock framework, that can be used with
-any testing framework.
+any testing framework with your Node.js module, or in the browser.
 
 ## Synopsis
 
