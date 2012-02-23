@@ -1,15 +1,116 @@
 [![Build Status](https://secure.travis-ci.org/vesln/jack.png)](http://travis-ci.org/vesln/jack)
 
-# Jack - mocks & stubs.
+# Jack
 
 ## Description
 
+Jack is a simple but yet powerful mock framework, that can be used with
+any testing framework.
+
 ## Synopsis
+
+### Mocks, Stubs, Spies.
+
+```js
+var jack = require('jack');
+
+obj.stub('foo');
+obj.mock('foo');
+obj.spy('foo');
+
+jack.stub(obj, 'foo');
+jack.mock(obj, 'foo');
+jack.spy(obj, 'foo');
+
+```
+
+### Stub
+
+#### return
+
+```js
+obj.stub('on').and.return(3);
+obj.stub('foo').and.return(3, 4, 5);
+```
+
+#### replace
+
+```js
+obj.stub('on').and.replace(function() {
+  // do magic here.
+});
+```
+
+### reset
+
+```js
+obj.foo.reset(); // in order to reset the method
+```
+
+### throw  
+
+```js
+obj.stub('foo').and.throw('Message'); 
+```
+
+### Mock
+
+#### calls
+
+```js
+obj.mock('on').it.should_be.called.once;
+
+obj.mock('on').it.should_be.called.twice;
+
+obj.mock('on').it.should_be.called.exactly(3).times;
+
+obj.mock('on').it.should_be.called.any.number.of.times;
+
+obj.mock('on').it.should_be.called.at.least(1).times;
+```
+
+### arguments
+
+```js
+obj.mock('on').expect.arguments('foo', 'bar');
+```
+
+You should call reset to check if an expectation is met.
+
+```js
+obj.on.reset();
+```
+
+### Spy
+
+Spies are the same as mocks, but the original behavior of the method is
+kept.
+
+```js
+obj.spy('foo');
+```
+
+### No conflict mode
+
+```js
+var jack = require('jack').noConflict();
+```
+
+### Extend your object/class
+
+```js
+var jack = require('jack');
+var myObj = jack.extend(myObj);
+
+function Obj() {}
+
+jack.extend(Obj);
+```
 
 ## Requirements
 
 - NPM (http://npmjs.org/)
-- Node.js 0.6 (http://nodejs.org/)
+- Node.js (http://nodejs.org/)
 
 ## Install
 
@@ -196,7 +297,7 @@ Interested in contributing? Fork to get started.
 
 MIT License
 
-Copyright (C) 2012 Veselin Todorov
+Copyright (C) 2012 Veselin Todorov and Jake Luer.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
