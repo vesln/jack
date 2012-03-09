@@ -141,9 +141,9 @@ var expect = chai.expect;
 ### Usage
 
 The jack integration with Chai provides a unique approach to mocks/stubs. Assertions
-can be defined before or after the test has taking place. This feature is referred to
-as `tense` detection and is an experimental feature provided Chai, and works in the same
-way has negation. Where the keyword `not` will negate a statement, the keyword `been` will
+can be defined before or after the test has taken place. This feature is referred to
+as `tense` detection and is an experimental feature provided by Chai, and works in the same
+way as negation. Where the keyword `not` will negate a statement, the keyword `been` will
 indicate that we are asserting how something has already behaved. This feature is only
 available in the jack/chai integration. Here is an example:
 
@@ -262,7 +262,7 @@ expect(myfoo.bar).to.be.called.max(3);
 
 ### Roadmap
 
-Chai integration will expanding its assertions to include `calledWith` and
+Chai integration will be expanding its assertions to include `calledWith` and
 other argument assertions in the near future.
 
 ## Tests
