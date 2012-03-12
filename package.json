@@ -1,6 +1,6 @@
 {
     "name": "jack"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "description": "Mock framework for Node.js and the browser."
   , "keywords": ["mock", "stub", "test"]
   , "author": "Veselin Todorov <hi@vesln.com>"
