@@ -1,28 +1,32 @@
 {
-    "name": "jack"
-  , "version": "0.0.2"
-  , "description": "Mock framework for Node.js and the browser."
-  , "keywords": ["mock", "stub", "test"]
-  , "author": "Veselin Todorov <hi@vesln.com>"
-  , "contributors": [
-        { "name": "Jake Luer"
-        , "email": "jake@alogicalparadox.com" }
-    ]
-  , "devDependencies": {
-      "mocha": "*"
-    , "chai": "*"
-    , "folio": "0.2.x"
-  }
-  , "repository": {
-      "type" : "git"
-    , "url" : "http://github.com/vesln/jack.git"
-  }
-  , "homepage": "http://github.com/vesln/jack"
-  , "scripts": {
-      "test": "make test"
-  }
-  , "main": "./index"
-  , "engines": {
-      "node": ">= 0.6.0 < 0.7.0"
+  "name": "jack",
+  "version": "0.0.2",
+  "description": "Test-double framework for Node.js and browsers",
+  "keywords": [
+    "mocks",
+    "stubs",
+    "testing",
+    "test doubles"
+  ],
+  "author": "Veselin Todorov <hi@vesln.com>",
+  "contributors": [
+    {
+      "name": "Jake Luer",
+      "email": "jake@alogicalparadox.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/vesln/jack.git"
+  },
+  "homepage": "http://github.com/vesln/jack",
+  "scripts": {
+    "test": "hydro"
+  },
+  "main": "./index",
+  "devDependencies": {
+    "hydro": "~0.8.3",
+    "hydro-dot": "~1.0.5",
+    "hydro-bdd": "0.0.3"
   }
 }
