@@ -43,7 +43,14 @@ describe('#stub', function() {
     }
 
     assert(err);
-
     jack.revert();
+  });
+
+  it('the stubbed function matches the number of args of the original', function() {
+    var first = { fn: function(a, b, c) {} };
+    var second = { fn: function(a, b, c, d) {} };
+
+    assert(jack.stub(first, 'fn').length === 3);
+    assert(jack.stub(second, 'fn').length === 4);
   });
 });
