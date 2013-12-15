@@ -5,6 +5,12 @@
 var assert = require('assert');
 
 /**
+ * Internal dependencies.
+ */
+
+var jack = require('./');
+
+/**
  * Test config.
  *
  * @param {Object} hydro
@@ -14,10 +20,16 @@ var assert = require('assert');
 module.exports = function(hydro) {
   hydro.set({
     formatter: 'hydro-dot',
-    plugins: ['hydro-bdd'],
     globals: {
-      assert: assert
+      assert: assert,
+      jack: jack
     },
-    tests: ['test/*.js']
+    tests: ['test/*.js'],
+    'clean-stacks': true,
+    plugins: [
+      'hydro-bdd',
+      'hydro-focus',
+      'hydro-clean-stacks',
+    ]
   });
 };

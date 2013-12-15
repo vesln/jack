@@ -23,10 +23,12 @@
   "scripts": {
     "test": "hydro"
   },
-  "main": "./index",
+  "main": "./lib/jack",
   "devDependencies": {
     "hydro": "~0.8.3",
     "hydro-dot": "~1.0.5",
-    "hydro-bdd": "0.0.3"
+    "hydro-bdd": "0.0.3",
+    "hydro-focus": "0.0.2",
+    "hydro-clean-stacks": "0.0.1"
   }
 }
