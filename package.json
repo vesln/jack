@@ -30,7 +30,6 @@
     "hydro-dot": "~1.0.5",
     "hydro-bdd": "0.0.3",
     "hydro-focus": "0.0.2",
-    "hydro-clean-stacks": "0.0.1",
     "istanbul": "~0.1.46"
   }
 }

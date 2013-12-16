@@ -25,11 +25,9 @@ module.exports = function(hydro) {
       jack: jack
     },
     tests: ['test/*.js'],
-    //'clean-stacks': true,
     plugins: [
       'hydro-bdd',
       'hydro-focus',
-      'hydro-clean-stacks',
     ]
   });
 };
