@@ -8,8 +8,13 @@ describe('#spy', function() {
   it('stores the arguments of the calls', function() {
     var spy = jack.spy();
     spy('foo', 'bar');
+    spy('boo', 'baz');
+
     assert(spy.calls[0].args[0] === 'foo');
     assert(spy.calls[0].args[1] === 'bar');
+
+    assert(spy.calls[1].args[0] === 'boo');
+    assert(spy.calls[1].args[1] === 'baz');
   });
 
   it('stores the context it was called with', function() {
