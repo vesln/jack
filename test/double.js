@@ -14,13 +14,13 @@ describe('double', function() {
     };
 
     for (var i = 1, len = 11; i < len; i++) {
-      assert(jack.double(obj, 'fn' + i ).length === i, i);
+      assert(jack(obj, 'fn' + i ).length === i, i);
     }
   });
 
   it('replaces the original method with provided fn', function() {
     var foo = { bar: function() { return 3 } };
-    jack.double(foo, 'bar', function() {
+    jack(foo, 'bar', function() {
       return 4;
     });
     assert(foo.bar() === 4);
@@ -28,7 +28,7 @@ describe('double', function() {
 
   it('cen revert to the original method', function() {
     var foo = { bar: function() { return 3 } };
-    jack.double(foo, 'bar', function() {});
+    jack(foo, 'bar', function() {});
     foo.bar.revert();
     assert(foo.bar() === 3);
   });
@@ -36,7 +36,7 @@ describe('double', function() {
   it('stores information about the calls', function() {
     var ctx = {};
     var obj = { test: function(){} };
-    var double = jack.double(obj, 'test');
+    var double = jack(obj, 'test');
 
     double('foo', 'bar');
     double.call(ctx);
@@ -53,7 +53,7 @@ describe('double', function() {
       test: function() { return 3; }
     };
 
-    jack.double(obj, 'test');
+    jack(obj, 'test');
 
     assert(obj.test() === 3);
     assert(obj.test.called);
