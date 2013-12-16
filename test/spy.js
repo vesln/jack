@@ -1,15 +1,22 @@
 describe('#spy', function() {
-  it('can tell if it has been called', function() {
+  it('stores if it has been called', function() {
     var spy = jack.spy();
     spy();
     assert(spy.called);
   });
 
-  it('stores information for the calls', function() {
+  it('stores the arguments of the calls', function() {
     var spy = jack.spy();
     spy('foo', 'bar');
     assert(spy.calls[0].args[0] === 'foo');
     assert(spy.calls[0].args[1] === 'bar');
+  });
+
+  it('stores the context it was called with', function() {
+    var spy = jack.spy();
+    var obj = {};
+    spy.call(obj);
+    assert(spy.calls[0].context === obj);
   });
 
   it('can spy object methods', function() {
