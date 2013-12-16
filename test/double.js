@@ -19,18 +19,16 @@ describe('double', function() {
   });
 
   it('replaces the original method with provided fn', function() {
-    var foo = { bar: function() { return 3 } };
-    jack(foo, 'bar', function() {
-      return 4;
-    });
+    var foo = { bar: function() { return 42 } };
+    jack(foo, 'bar', function() { return 4; });
     assert(foo.bar() === 4);
   });
 
   it('cen revert to the original method', function() {
-    var foo = { bar: function() { return 3 } };
+    var foo = { bar: function() { return 42 } };
     jack(foo, 'bar', function() {});
     foo.bar.revert();
-    assert(foo.bar() === 3);
+    assert(foo.bar() === 42);
   });
 
   it('stores information about the calls', function() {
@@ -49,14 +47,18 @@ describe('double', function() {
   });
 
   it('can spy object methods', function() {
-    var obj = {
-      test: function() { return 3; }
-    };
+    var obj = { test: function() { return 42; } };
 
     jack(obj, 'test');
 
-    assert(obj.test() === 3);
+    assert(obj.test() === 42);
     assert(obj.test.called);
     assert(obj.test.calls.length === 1);
+  });
+
+  it('has the correct number of params', function() {
+    var obj = { test: function(a, b, c) {} };
+    var double = jack(obj, 'test');
+    assert(double.length === 3);
   });
 });
