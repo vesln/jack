@@ -17,9 +17,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://github.com/vesln/jack.git"
+    "url": "http://github.com/jackjs/jack.git"
   },
-  "homepage": "http://github.com/vesln/jack",
+  "homepage": "http://github.com/jackjs/jack",
   "scripts": {
     "test": "hydro",
     "coverage": "istanbul cover _hydro"
