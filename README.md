@@ -6,6 +6,30 @@ Test-double framework for Node.js and the browser.
 
 For more information view the [documentation](http://jackjs.com).
 
+### Related projects
+
+- [jackjs / chai](http://github.com/jackjs/chai): Chai.js integration
+- [jackjs / expect](http://github.com/jackjs/expect): Expect.js integration
+- [jackjs / should](http://github.com/jackjs/should): Should.js integration
+- [jackjs / verify](http://github.com/jackjs/verify): Standalone assertions
+- [jackjs / util](http://github.com/jackjs/util): Util package for assertion framework developers
+
+### Contributors
+
+```
+ project  : jack
+ repo age : 1 year, 11 months
+ active   : 14 days
+ commits  : 112
+ files    : 15
+ authors  :
+    74  Veselin Todorov         66.1%
+    35  Jake Luer               31.2%
+     1  Administrator           0.9%
+     1  Erkan Yilmaz            0.9%
+     1  James Herdman           0.9%
+```
+
 ## License
 
 MIT License
