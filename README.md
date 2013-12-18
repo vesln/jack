@@ -30,7 +30,11 @@ For more information view the [documentation](http://jackjs.com).
      1  James Herdman           0.9%
 ```
 
-## License
+### Note for 0.0.x users
+
+0.1.0 introduces API breaking changes.
+
+### License
 
 MIT License
 
