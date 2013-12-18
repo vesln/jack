@@ -8,11 +8,11 @@ For more information view the [documentation](http://jackjs.com).
 
 ### Related projects
 
-- [jackjs / chai](http://github.com/jackjs/chai): Chai.js integration
-- [jackjs / expect](http://github.com/jackjs/expect): Expect.js integration
-- [jackjs / should](http://github.com/jackjs/should): Should.js integration
-- [jackjs / verify](http://github.com/jackjs/verify): Standalone assertions
-- [jackjs / util](http://github.com/jackjs/util): Util package for assertion framework developers
+- [jackjs / chai](http://github.com/jackjs/jack-chai): Chai.js integration
+- [jackjs / expect](http://github.com/jackjs/jack-expect): Expect.js integration
+- [jackjs / should](http://github.com/jackjs/jack-should): Should.js integration
+- [jackjs / verify](http://github.com/jackjs/jack-verify): Standalone assertions
+- [jackjs / util](http://github.com/jackjs/jack-util): Util package for assertion framework developers
 
 ### Contributors
 
