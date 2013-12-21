@@ -1,4 +1,4 @@
-var util = require('../lib/util');
+var util = jack._;
 
 describe('util', function() {
   describe('proxy', function() {

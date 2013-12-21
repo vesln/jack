@@ -1,0 +1,15 @@
+{
+  "name": "jack",
+  "repo": "jackjs/jack",
+  "description": "",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/jack.js",
+  "scripts": [
+    "lib/jack.js",
+    "lib/util.js"
+  ],
+  "development": {
+    "component/assert": "0.3.0"
+  }
+}

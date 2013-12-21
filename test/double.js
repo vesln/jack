@@ -59,6 +59,7 @@ describe('double', function() {
   it('has the correct number of params', function() {
     var obj = { test: function(a, b, c) {} };
     var double = jack(obj, 'test');
+
     assert(double.length === 3);
   });
 });

@@ -21,15 +21,22 @@
   },
   "homepage": "http://github.com/jackjs/jack",
   "scripts": {
-    "test": "hydro",
+    "test": "hydro && karma start",
     "coverage": "istanbul cover _hydro"
   },
   "main": "./lib/jack",
   "devDependencies": {
-    "hydro": "~0.8.3",
-    "hydro-dot": "~1.0.5",
-    "hydro-bdd": "0.0.3",
-    "hydro-focus": "0.0.2",
+    "hydro": "*",
+    "hydro-dot": "*",
+    "hydro-bdd": "*",
+    "hydro-focus": "*",
+    "karma": "~0.10.8",
+    "karma-chrome-launcher": "~0.1.1",
+    "karma-firefox-launcher": "~0.1.2",
+    "karma-phantomjs-launcher": "~0.1.1",
+    "karma-safari-launcher": "~0.1.1",
+    "karma-hydro": "*",
+    "component": "*",
     "istanbul": "~0.1.46"
   }
 }
