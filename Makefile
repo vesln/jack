@@ -31,7 +31,7 @@ test-sauce:
 
 # CI
 
-ci: test-node test-sauce
+ci: components build test-node test-sauce
 
 # Clean
 
