@@ -1,3 +1,7 @@
+/**
+ * Browsers.
+ */
+
 var browsers = {
   'SL_Chrome': {
     base: 'SauceLabs',
@@ -26,6 +30,13 @@ var browsers = {
     version: '9'
   },
 };
+
+/**
+ * Configure Karma to run the tests on SauceLabs.
+ *
+ * @param {Object} config
+ * @api public
+ */
 
 module.exports = function(config) {
   var package = require('./package.json');
