@@ -10,6 +10,7 @@
     "lib/util.js"
   ],
   "development": {
-    "component/assert": "0.3.0"
+    "component/assert": "0.3.0",
+    "hydrojs/hydro-bdd": "*"
   }
 }

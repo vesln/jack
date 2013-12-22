@@ -4,7 +4,7 @@ module.exports = function(config) {
     frameworks: ['hydro'],
     files: [
       'build/build.js',
-      'karma.bootstrap.js',
+      'hydro.karma.js',
       'test/*.js'
     ],
     exclude: [],
@@ -18,7 +18,8 @@ module.exports = function(config) {
     singleRun: true,
     client: {
       hydro: {
-        plugins: ['hydro-bdd']
+        plugins: ['hydro-bdd'],
+        setup: false
       }
     }
   });

@@ -27,7 +27,7 @@ module.exports = function(hydro) {
     tests: ['test/*.js'],
     plugins: [
       'hydro-bdd',
-      'hydro-focus',
-    ]
+      'hydro-focus'
+    ],
   });
 };
