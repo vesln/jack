@@ -43,9 +43,7 @@ module.exports = function(config) {
   // Do not run when on Travis CI and the current node version
   // doesn't match the configured one
   if (process.version.indexOf(process.env.RUN_ON) !== 0 && process.env.TRAVIS) {
-    config.browsers = [];
-    config.customLaunchers = {};
-    return;
+    process.exit(0);
   }
 
   config.browsers = versions;
