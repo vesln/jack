@@ -1,8 +1,12 @@
 language: node_js
 node_js:
-  - 0.8
-  - 0.10
-  - 0.11
-
+- 0.8
+- 0.1
+- 0.11
 script:
-  - make ci
+- make ci
+env:
+  global:
+  - secure: LGiiL2cyRHg0uefpZQFi0Q5ewCSdHI4OVdhEoRh0pcdl60s15CUdMYMsZkzURmPseyhrOaICluIwRVilwru0Je+TRw0cLgjKrX+0Ee0pbKsM0+tLRfMHgAvFN77Ds/Ky1bJPLeRFAkwYSvMVLOJOTzui74orp2AJT2y46FAhSm0=
+  - secure: uyV6QBONEKS7n6vWw7Gu6kR3RiSjeh6Pd/F1NNhh5CGN63lb44/OnOUtoVT3gyCL4Tp23lxL0u970pKc9OM/4WWoEIDGZ9N+RXbW0dzWQkHYDSysM/M32AnNFWjOwWP19Be8JSunnJbSw5bLUItvzi3BPrqeMWQgYCPSqQ3E3gY=
+  - SAUCE_CONNECT_READY_FILE=/tmp/sauce-connect-ready

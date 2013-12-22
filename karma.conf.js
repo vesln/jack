@@ -21,6 +21,10 @@ module.exports = function(config) {
         plugins: ['hydro-bdd'],
         setup: false
       }
-    }
+    },
   });
+
+  if (process.env.TEST_ENV === 'sauce') {
+    require('./karma.sauce')(config);
+  }
 };

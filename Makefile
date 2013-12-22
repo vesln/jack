@@ -1,3 +1,8 @@
+# Run the tests on SauceLabs only when
+# the current node version is the following:
+
+NODE_VERSION = v0.10.
+
 all: browser
 
 # Install node modules and components
@@ -21,9 +26,12 @@ test-node:
 test-browser:
 	@./node_modules/.bin/karma start
 
+test-sauce:
+	@TEST_ENV=sauce RUN_ON=$(NODE_VERSION) ./node_modules/.bin/karma start
+
 # CI
 
-ci: test-node
+ci: test-node test-sauce
 
 # Clean
 
