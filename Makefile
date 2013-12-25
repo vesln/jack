@@ -118,7 +118,7 @@ clean-cov:
 # CI
 #
 
-ci: test-node test-sauce coveralls
+ci: test-node test-sauce
 
 #
 # Send coverage to coveralls
