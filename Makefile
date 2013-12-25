@@ -1,58 +1,148 @@
 # Run the tests on SauceLabs only when
 # the current node version is the following:
 
-NODE_VERSION = v0.10.
+SAUCE_NODE_VERSION = v0.10.
 
-all: browser
+#
+# Variables
+#
 
-# Install node modules and components
+MIN = jack.min.js
+KARMA = node_modules/.bin/karma
+UGLIFY = node_modules/uglify-js/bin/uglifyjs
+BROWSER = jack.js
+COV_EXEC = node_modules/.bin/_hydro
+TEST_EXEC = node_modules/.bin/hydro
+ISTANBUL = node_modules/.bin/istanbul
+COVERALLS = node_modules/coveralls/bin/coveralls.js
+COMPONENT_BUILD = node_modules/.bin/component-build
+COMPONENT_INSTALL = node_modules/.bin/component-install
 
-install: node_modules components
+#
+# All
+#
 
-# Standalone
+all: install test
+
+#
+# Install
+#
+
+install: node_modules components build browser
+
+#
+# Browser build
+#
 
 browser: node_modules components
-	@./node_modules/.bin/component-build -s jack -o .
-	@mv build.js jack.js
+	@$(COMPONENT_BUILD) -s jack -o .
+	@mv build.js $(BROWSER)
+	@$(UGLIFY) $(BROWSER) --output $(MIN)
 
-# Development
+#
+# Make a new development build
+#
 
-build: components
-	@./node_modules/.bin/component-build --dev
+build: node_modules components
+	@$(COMPONENT_BUILD) --dev
 
-test-node:
-	@./node_modules/.bin/hydro
+#
+# Run all tests
+#
 
-test-browser:
-	@./node_modules/.bin/karma start
+test: test-node test-browser
 
-test-sauce:
-	@TEST_ENV=sauce RUN_ON=$(NODE_VERSION) ./node_modules/.bin/karma start
+# Run the Node.js tests
 
-# CI
+test-node: node_modules
+	@$(TEST_EXEC)
 
-ci: components build test-node test-sauce
+#
+# Run the browser tests
+#
 
-# Clean
+test-browser: node_modules components build
+	@$(KARMA) start
 
-clean: clean-node clean-browser clean-components
+#
+# Test coverage
+#
+
+test-cov: node_modules
+	@$(ISTANBUL) cover $(COV_EXEC) -- --formatter hydro-silent
+
+#
+# Run the tests on SauceLabs
+#
+
+test-sauce: node_modules components build
+	@TEST_ENV=sauce KARMA_RUN_ON=$(SAUCE_NODE_VERSION) $(KARMA) start
+
+#
+# Clean all
+#
+
+clean: clean-node clean-browser clean-components clean-cov
+
+#
+# Clean node_modules
+#
 
 clean-node:
 	@rm -rf node_modules
 
+#
+# Clean the browser build
+#
+
 clean-browser:
-	@rm -f jack.js
+	@rm -f $(BROWSER)
+	@rm -f $(MIN)
+
+#
+# Clean components & build
+#
 
 clean-components:
 	@rm -rf build
 	@rm -rf components
 
-# Support
+#
+# Clean the test coverage
+#
+
+clean-cov:
+	@rm -rf coverage
+
+#
+# CI
+#
+
+ci: test-node test-sauce coveralls
+
+#
+# Send coverage to coveralls
+#
+
+coveralls: node_modules
+	@$(ISTANBUL) cover $(COV_EXEC) --report lcovonly && cat ./coverage/lcov.info | $(COVERALLS)
+
+#
+# Install all components (+ dev)
+#
 
 components: node_modules component.json
-	@./node_modules/.bin/component-install --dev
+	@$(COMPONENT_INSTALL) --dev
 
-node_modules: package.json
+#
+# Install Node.js modules
+#
+
+node_modules:
 	@npm install
 
-.PHONY: all browser node_modules
+#
+# Instructions
+#
+
+.PHONY: all test coverage browser build components

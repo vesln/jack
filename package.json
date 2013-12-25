@@ -38,6 +38,7 @@
     "karma-sauce-launcher": "git://github.com/embarkmobile/karma-sauce-launcher.git#feature-passfail",
     "karma-hydro": "*",
     "component": "*",
-    "istanbul": "~0.1.46"
+    "istanbul": "~0.1.46",
+    "uglify-js": "~2.4.8"
   }
 }
