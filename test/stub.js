@@ -4,4 +4,10 @@ describe('stub', function() {
     jack.stub(foo, 'bar');
     assert(foo.bar() !== 3);
   });
+
+  it('can stub methods that do not exist', function() {
+    var foo = {};
+    jack.stub(foo, 'bar');
+    assert(typeof foo.bar === 'function');
+  });
 });
