@@ -2,6 +2,8 @@
 [![Build Status](https://secure.travis-ci.org/jackjs/jack.png)](http://travis-ci.org/jackjs/jack)
 [![Coverage Status](https://coveralls.io/repos/jackjs/jack/badge.png?branch=master)](https://coveralls.io/r/jackjs/jack?branch=master)
 
+## WIP
+
 Test-double framework for Node.js and the browser.
 
 For more information view the [documentation](http://jackjs.com).
